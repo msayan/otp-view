@@ -5,7 +5,6 @@ import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
-import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
@@ -18,22 +17,22 @@ class OTPEditText extends AppCompatEditText implements TextWatcher, View.OnFocus
     public OTPEditText(Context context, int order) {
         super(context);
         this.order = order;
-        init(context);
+        init();
     }
 
     public OTPEditText(Context context, AttributeSet attrs, int order) {
         super(context, attrs);
         this.order = order;
-        init(context);
+        init();
     }
 
     public OTPEditText(Context context, AttributeSet attrs, int defStyleAttr, int order) {
         super(context, attrs, defStyleAttr);
         this.order = order;
-        init(context);
+        init();
     }
 
-    public void init(Context context) {
+    public void init() {
         setHint("*");
         setCursorVisible(false);
         changeBackground(true);
@@ -85,8 +84,8 @@ class OTPEditText extends AppCompatEditText implements TextWatcher, View.OnFocus
     }
 
     @Override
-    public void onFocusChange(View view, boolean b) {
-        if (b) {
+    public void onFocusChange(View view, boolean hasFocus) {
+        if (hasFocus) {
             ((OTPView) getParent()).focusChange(view);
         }
     }
