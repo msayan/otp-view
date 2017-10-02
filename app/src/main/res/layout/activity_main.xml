@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hololo.library.otpviewexample.MainActivity">
+
+    <com.hololo.library.otpview.OTPView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:hintColor="@android:color/holo_blue_bright"
+        app:inputType="number"
+        app:otpText="123"
+        app:count="7"
+        app:textColor="@color/colorPrimary"
+        app:otpHint="*" />
+
+</LinearLayout>
