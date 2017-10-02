@@ -1,10 +1,10 @@
 [![](https://jitpack.io/#msayan/otp-view.svg)](https://jitpack.io/#msayan/otp-view)
 
-# Tutorial View
+# OTP View
 
-Ready to use tutorial screen.
+Ready to use one time password component.
 
-![sample_video](assets/demo.mp4)
+![sample_video](assets/demo.gif)
 
 ## Usage
 
