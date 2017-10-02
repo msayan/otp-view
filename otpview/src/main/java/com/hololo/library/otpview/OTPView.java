@@ -6,7 +6,6 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.text.InputType;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
@@ -37,28 +36,34 @@ public class OTPView extends LinearLayout {
         init(attrs);
     }
 
-    public void setHint(String hint) {
+    public OTPView setHint(String hint) {
         this.hint = hint;
+        return this;
     }
 
-    public void setCount(int count) {
+    public OTPView setCount(int count) {
         this.count = count;
+        return this;
     }
 
-    public void setInputType(int inputType) {
+    public OTPView setInputType(int inputType) {
         this.inputType = inputType;
+        return this;
     }
 
-    public void setTextColor(int textColor) {
+    public OTPView setTextColor(int textColor) {
         this.textColor = textColor;
+        return this;
     }
 
-    public void setHintColor(int hintColor) {
+    public OTPView setHintColor(int hintColor) {
         this.hintColor = hintColor;
+        return this;
     }
 
-    public void setViewsPadding(int viewsPadding) {
+    public OTPView setViewsPadding(int viewsPadding) {
         this.viewsPadding = viewsPadding;
+        return this;
     }
 
     private void init(AttributeSet attrs) {
@@ -130,17 +135,19 @@ public class OTPView extends LinearLayout {
         }
     }
 
-    public void setListener(OTPListener listener) {
+    public OTPView setListener(OTPListener listener) {
         this.listener = listener;
+        return this;
     }
 
-    public void setOtp(String otp) {
+    public OTPView setOtp(String otp) {
         if (otp != null)
             for (int i = 0; i < otp.length(); i++) {
                 OTPEditText child = (OTPEditText) getChildAt(i);
                 String a = String.valueOf(otp.toCharArray()[i]);
                 child.setText(a);
             }
+        return this;
     }
 
     public String getOtp() {
@@ -168,7 +175,7 @@ public class OTPView extends LinearLayout {
         }
     }
 
-    public void setFocus() {
+    public OTPView setFocus() {
         View view = getChildAt(getOtp().length());
         if (view != null) {
             view.requestFocus();
@@ -176,5 +183,6 @@ public class OTPView extends LinearLayout {
             view = getChildAt(getChildCount() - 1);
             view.requestFocus();
         }
+        return this;
     }
 }
