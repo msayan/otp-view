@@ -73,7 +73,7 @@ Add it in your root build.gradle at the end of repositories:
 ```groovy
 
 	dependencies {
-		compile 'com.github.msayan:otp-view:v1.0.0'
+		compile 'com.github.msayan:otp-view:v1.0.1'
 	}
   
 ```
