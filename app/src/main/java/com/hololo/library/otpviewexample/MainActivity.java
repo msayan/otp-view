@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        OTPView otpView = findViewById(R.id.otpView);
+        OTPView otpView = (OTPView) findViewById(R.id.otpView);
         otpView.setTextColor(R.color.colorAccent)
                 .setHintColor(R.color.colorAccent)
                 .setCount(7)

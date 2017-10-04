@@ -3,11 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://D:\Users\antox\Documents\otp-view\OTPViewExample.iml" filepath="D:\Users\antox\Documents\otp-view\OTPViewExample.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://D:\Users\antox\Documents\otp-view\app\app.iml" filepath="D:\Users\antox\Documents\otp-view\app\app.iml" />
+      <module fileurl="file://D:\Users\antox\Documents\otp-view\otpview\otpview.iml" filepath="D:\Users\antox\Documents\otp-view\otpview\otpview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OTPViewExample.iml" filepath="$PROJECT_DIR$/OTPViewExample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/otp-view.iml" filepath="$PROJECT_DIR$/otp-view.iml" />
       <module fileurl="file://$PROJECT_DIR$/otpview/otpview.iml" filepath="$PROJECT_DIR$/otpview/otpview.iml" />
-      <module fileurl="file://D:\Users\antox\Documents\otp-view\otpview\otpview.iml" filepath="D:\Users\antox\Documents\otp-view\otpview\otpview.iml" />
     </modules>
   </component>
 </project>

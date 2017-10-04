@@ -27,14 +27,19 @@ Ready to use one time password component.
 
 ### Java
 ```java
-       OTPView otpView = (OTPView) findViewById(R.id.otpView);
-       otpView.setTextColor(R.color.colorAccent);
-       otpView.setHintColor(R.color.colorAccent);
-       otpView.setCount(7);
-       otpView.setInputType(InputType.TYPE_CLASS_NUMBER);
-       otpView.setViewsPadding(16);
-       otpView.fillLayout(); // You need to call this function after programmatically changes
-   
+        OTPView otpView = (OTPView) findViewById(R.id.otpView);
+        otpView.setTextColor(R.color.colorAccent)
+                .setHintColor(R.color.colorAccent)
+                .setCount(7)
+                .setInputType(InputType.TYPE_CLASS_NUMBER)
+                .setViewsPadding(16)
+                .setListener(new OTPListener() {
+                    @Override
+                    public void otpFinished(String otp) {
+                        Toast.makeText(MainActivity.this, "OTP finished, the otp is " + otp, Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .fillLayout(); 
 ```
 
 ### OTP Listener
