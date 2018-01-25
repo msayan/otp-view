@@ -2,6 +2,7 @@
 <resources>
     <declare-styleable name="OTPView">
         <attr name="count" format="integer" />
+        <attr name="textSize" format="integer"/>
         <attr name="otpText" format="string" />
         <attr name="otpHint" format="string" />
         <attr name="hintColor" format="color" />
