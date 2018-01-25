@@ -12,7 +12,7 @@ import android.widget.LinearLayout;
 
 public class OTPView extends LinearLayout {
     private OTPListener listener;
-    private int count, inputType, textColor, hintColor, viewsPadding;
+    private int count, inputType, textColor, hintColor, viewsPadding, textSize;
     private String hint;
 
     public OTPView(Context context) {
@@ -66,6 +66,12 @@ public class OTPView extends LinearLayout {
         return this;
     }
 
+
+    public OTPView setTextSize(int textSize) {
+        this.textSize = textSize;
+        return this;
+    }
+
     private void init(AttributeSet attrs) {
         int padding = (int) dp2px(8);
         setPadding(padding, padding, padding, padding);
@@ -77,6 +83,7 @@ public class OTPView extends LinearLayout {
         hintColor = styles.getInt(R.styleable.OTPView_hintColor, -1);
         viewsPadding = styles.getInt(R.styleable.OTPView_viewsPadding, -1);
         hint = styles.getString(R.styleable.OTPView_otpHint);
+        textSize = styles.getInt(R.styleable.OTPView_textSize, -1);
         String text = styles.getString(R.styleable.OTPView_otpText);
 
         fillLayout();
@@ -88,7 +95,7 @@ public class OTPView extends LinearLayout {
         clearLayout();
         for (int i = 0; i < count; i++) {
             OTPEditText editText = new OTPEditText(getContext(), i);
-            editText.setMargin((int) dp2px(8));
+            editText.setMargin((int) dp2px(22));
             editText.setInputType(inputType);
             if (textColor != -1) {
                 editText.setTextColor(textColor);
@@ -100,11 +107,16 @@ public class OTPView extends LinearLayout {
                 editText.setMargin(viewsPadding);
             }
 
+            if (textSize != -1) {
+                editText.setTextSize(dp2px(textSize));
+            }
+
             if (hint != null && hint.length() > 0) {
                 editText.setHint(hint.substring(0, 1));
             }
             addView(editText);
         }
+        getChildAt(0).requestFocus();
     }
 
     private void clearLayout() {

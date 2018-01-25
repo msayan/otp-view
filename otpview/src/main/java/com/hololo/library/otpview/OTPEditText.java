@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
+import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
@@ -39,6 +40,8 @@ class OTPEditText extends AppCompatEditText implements TextWatcher, View.OnFocus
         addTextChangedListener(this);
         setOnTouchListener(this);
         setClickable(true);
+        setMaxLines(1);
+        setFilters(new InputFilter[]{new InputFilter.LengthFilter(1)});
         setOnClickListener(this);
         setOnFocusChangeListener(this);
         setOnKeyListener(new OnKeyListener() {
@@ -100,4 +103,10 @@ class OTPEditText extends AppCompatEditText implements TextWatcher, View.OnFocus
         ((OTPView) getParent()).setFocus();
         return false;
     }
+
+    private float dp2px(int dip) {
+        float scale = getContext().getResources().getDisplayMetrics().density;
+        return dip * scale + 0.5f;
+    }
+
 }
