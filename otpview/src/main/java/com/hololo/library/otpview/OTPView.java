@@ -3,6 +3,7 @@ package com.hololo.library.otpview;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.RequiresApi;
 import android.text.InputType;
 import android.util.AttributeSet;
@@ -12,7 +13,8 @@ import android.widget.LinearLayout;
 
 public class OTPView extends LinearLayout {
     private OTPListener listener;
-    private int count, inputType, textColor, hintColor, viewsPadding, textSize;
+    private int count, inputType, textColor, hintColor, viewsPadding, textSize, innerViewsMargin;
+    @DrawableRes private int drawableIcon;
     private String hint;
 
     public OTPView(Context context) {
@@ -84,6 +86,12 @@ public class OTPView extends LinearLayout {
         viewsPadding = styles.getInt(R.styleable.OTPView_viewsPadding, -1);
         hint = styles.getString(R.styleable.OTPView_otpHint);
         textSize = styles.getInt(R.styleable.OTPView_textSize, -1);
+
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            drawableIcon = styles.getResourceId(R.styleable.OTPView_backgroundDrawable, R.drawable.ic_transparent_background);
+        }
+        innerViewsMargin = styles.getInt(R.styleable.OTPView_innerViewsMargin, 0);
+
         String text = styles.getString(R.styleable.OTPView_otpText);
 
         fillLayout();
@@ -95,8 +103,14 @@ public class OTPView extends LinearLayout {
         clearLayout();
         for (int i = 0; i < count; i++) {
             OTPEditText editText = new OTPEditText(getContext(), i);
-            editText.setMargin((int) dp2px(22));
             editText.setInputType(inputType);
+
+            if (innerViewsMargin != -1) {
+                setViewsMargins(editText, innerViewsMargin);
+            }
+            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && drawableIcon != -1) {
+                editText.setBackground(getContext().getDrawable(drawableIcon));
+            }
             if (textColor != -1) {
                 editText.setTextColor(textColor);
             }
@@ -117,6 +131,12 @@ public class OTPView extends LinearLayout {
             addView(editText);
         }
         getChildAt(0).requestFocus();
+    }
+
+    public void setViewsMargins(OTPEditText editText, int margin) {
+        LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        params.setMargins(margin, margin, margin, margin);
+        editText.setLayoutParams(params);
     }
 
     private void clearLayout() {

@@ -7,6 +7,8 @@
         <attr name="otpHint" format="string" />
         <attr name="hintColor" format="color" />
         <attr name="textColor" format="color" />
+        <attr name="backgroundDrawable" format="reference"/>
+        <attr name="innerViewsMargin" format="integer"/>
         <attr name="inputType">
             <!-- There is no content type.  The text is not editable. -->
             <flag name="none" value="0x00000000" />
