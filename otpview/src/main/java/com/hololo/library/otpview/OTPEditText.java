@@ -72,7 +72,6 @@ class OTPEditText extends AppCompatEditText implements TextWatcher, View.OnFocus
     }
 
     private void changeBackground(boolean isEmpty) {
-        setBackgroundColor(Color.TRANSPARENT);
         if (!isEmpty) {
             ((OTPView) getParent()).onKeyPressed(this);
         }
